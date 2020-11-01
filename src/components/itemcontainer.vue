@@ -1,3 +1,4 @@
+<!--展示模板-->
 <template>
   	<section>
     	<header class="top_tips">
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+//导入组件
 import { mapState, mapActions } from 'vuex'
 export default {
 	name: 'itemcontainer',
@@ -37,6 +39,7 @@ export default {
 			choosedId:null //选中答案id
 		}
 	},
+	//props是子组件访问父组件数据的唯一接口。
   	props:['fatherComponent'],
   	computed: mapState([
 	  	'itemNum', //第几题

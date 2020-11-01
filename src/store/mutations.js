@@ -2,6 +2,8 @@ const ADD_ITEMNUM = 'ADD_ITEMNUM'
 const REMBER_ANSWER = 'REMBER_ANSWER'
 const REMBER_TIME = 'REMBER_TIME'
 const INITIALIZE_DATA = 'INITIALIZE_DATA'
+
+//存放vuex中要用到的常量 
 export default {
 	//点击进入下一题
 	[ADD_ITEMNUM](state, num) {
@@ -12,10 +14,10 @@ export default {
 		state.answerid.push(id);
 	},
 	/*
-	记录做题时间
+	记录做题时间b
 	 */
 	[REMBER_TIME](state) {
-		state.timer = setInterval(() => {
+		state.timer = setInterval(() => { 
 			state.allTime++;
 		}, 1000)
 	},

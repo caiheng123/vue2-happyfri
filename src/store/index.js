@@ -4,6 +4,7 @@ import mutations from './mutations'
 import actions from './action'
 import ajax from '../config/ajax'
 
+//定义Vuex.store
 
 Vue.use(Vuex)
 
@@ -171,6 +172,7 @@ const state = {
 	answerid: [], //答案id
 }
 
+//state就是根据你项目的需求，自己定义一个数据结构。Store中至少要注入两项，state 和 mutation。
 export default new Vuex.Store({
 	state,
 	actions,
