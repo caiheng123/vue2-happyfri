@@ -2,11 +2,16 @@
 <template>
   	<section>
     	<header class="top_tips">
+			<!-- 数据绑定最常见的形式就是使用 {{...}}（双大括号）的文本插值 -->
     		<span class="num_tip" v-if="fatherComponent == 'home'">{{level}}</span>
     		<span class="num_tip" v-if="fatherComponent == 'item'">题目{{itemNum}}</span>
     	</header>
     	<div v-if="fatherComponent == 'home'" >
     		<div class="home_logo item_container_style"></div>
+			<!-- 
+				<router-link> 组件用于设置一个导航链接，切换不同 HTML 内容 
+				to里的值可以是一个字符串路径，或者一个描述地址的对象。
+			-->
     		<router-link to="item" class="start button_style" ></router-link>
     	</div>
     	<div v-if="fatherComponent == 'item'" >
@@ -32,6 +37,7 @@
 import { mapState, mapActions } from 'vuex'
 export default {
 	name: 'itemcontainer',
+	//template 中可使用的数据
 	data() {
 		return {
 			itemId: null, //题目ID
@@ -39,8 +45,11 @@ export default {
 			choosedId:null //选中答案id
 		}
 	},
-	//props是子组件访问父组件数据的唯一接口。
-  	props:['fatherComponent'],
+	//props是子组件访问父组件数据的唯一接口。template 中可使用的数据 / 引用 template 时赋值的属性
+	  props:['fatherComponent'],
+	  //data 改变或查询时的回调，形成 template 中可使用的数据
+	  //mapState 辅助函数 当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。
+	  //接收数据的方法
   	computed: mapState([
 	  	'itemNum', //第几题
   		'level', //第几周
